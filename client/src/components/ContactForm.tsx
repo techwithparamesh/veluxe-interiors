@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -13,20 +14,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+import { apiRequest } from "@/lib/queryClient";
 
 export default function ContactForm() {
   const { toast } = useToast();
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+  const form = useForm<InsertContactMessage>({
+    resolver: zodResolver(insertContactMessageSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -35,13 +28,29 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
-    console.log("Contact form submitted:", data);
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    form.reset();
+  const mutation = useMutation({
+    mutationFn: async (data: InsertContactMessage) => {
+      const response = await apiRequest("POST", "/api/contact-messages", data);
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: InsertContactMessage) => {
+    mutation.mutate(data);
   };
 
   return (
@@ -104,8 +113,13 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full rounded-full" data-testid="button-contact-submit">
-          Send Message
+        <Button 
+          type="submit" 
+          className="w-full rounded-full" 
+          disabled={mutation.isPending}
+          data-testid="button-contact-submit"
+        >
+          {mutation.isPending ? "Sending..." : "Send Message"}
         </Button>
       </form>
     </Form>

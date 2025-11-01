@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { insertConsultationBookingSchema, type InsertConsultationBooking } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -20,23 +21,12 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
-const bookingFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  city: z.string().min(2, "City is required"),
-  homeType: z.string().min(1, "Please select a home type"),
-  service: z.string().min(1, "Please select a service"),
-  notes: z.string().optional(),
-});
-
-type BookingFormValues = z.infer<typeof bookingFormSchema>;
+import { apiRequest } from "@/lib/queryClient";
 
 export default function BookingForm() {
   const { toast } = useToast();
-  const form = useForm<BookingFormValues>({
-    resolver: zodResolver(bookingFormSchema),
+  const form = useForm<InsertConsultationBooking>({
+    resolver: zodResolver(insertConsultationBookingSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -48,13 +38,29 @@ export default function BookingForm() {
     },
   });
 
-  const onSubmit = (data: BookingFormValues) => {
-    console.log("Booking form submitted:", data);
-    toast({
-      title: "Consultation Booked!",
-      description: "Our team will contact you within 24 hours to schedule your consultation.",
-    });
-    form.reset();
+  const mutation = useMutation({
+    mutationFn: async (data: InsertConsultationBooking) => {
+      const response = await apiRequest("POST", "/api/consultation-bookings", data);
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Consultation Booked!",
+        description: "Our team will contact you within 24 hours to schedule your consultation.",
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to submit booking. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: InsertConsultationBooking) => {
+    mutation.mutate(data);
   };
 
   return (
@@ -125,7 +131,7 @@ export default function BookingForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Home Type</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger data-testid="select-booking-hometype">
                       <SelectValue placeholder="Select home type" />
@@ -148,7 +154,7 @@ export default function BookingForm() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Service Interested In</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger data-testid="select-booking-service">
                       <SelectValue placeholder="Select service" />
@@ -179,6 +185,7 @@ export default function BookingForm() {
                   placeholder="Tell us more about your requirements..."
                   className="min-h-[100px]"
                   {...field}
+                  value={field.value || ""}
                   data-testid="input-booking-notes"
                 />
               </FormControl>
@@ -187,8 +194,14 @@ export default function BookingForm() {
           )}
         />
 
-        <Button type="submit" className="w-full rounded-full" size="lg" data-testid="button-booking-submit">
-          Book Free Consultation
+        <Button 
+          type="submit" 
+          className="w-full rounded-full" 
+          size="lg" 
+          disabled={mutation.isPending}
+          data-testid="button-booking-submit"
+        >
+          {mutation.isPending ? "Submitting..." : "Book Free Consultation"}
         </Button>
       </form>
     </Form>
