@@ -13,14 +13,16 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, description, image, link }: ServiceCardProps) {
   return (
     <Card className="overflow-hidden hover-elevate transition-all duration-300 group">
-      <div className="aspect-[4/3] overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          data-testid={`img-service-${title.toLowerCase().replace(/\s+/g, '-')}`}
-        />
-      </div>
+      <Link href={link}>
+        <div className="aspect-[4/3] overflow-hidden cursor-pointer">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            data-testid={`img-service-${title.toLowerCase().replace(/\s+/g, '-')}`}
+          />
+        </div>
+      </Link>
       <div className="p-6 border-t-4 border-primary">
         <h3 className="font-serif text-2xl font-bold mb-3" data-testid={`text-service-title-${title.toLowerCase().replace(/\s+/g, '-')}`}>
           {title}

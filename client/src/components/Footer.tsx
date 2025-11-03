@@ -33,10 +33,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              {["Modular Kitchen", "Wardrobes", "Living Room", "Bedroom"].map((item) => (
+              {["Modular Kitchen", "TV Unit", "Bedroom", "Pooja Mandir", "Living Room/Hall", "Wardrobes"].map((item) => (
                 <li key={item}>
-                  <Link href={`/${item.toLowerCase().replace(" ", "-")}`}>
-                    <a className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid={`link-footer-service-${item.toLowerCase().replace(" ", "-")}`}>
+                  <Link href={`/${item.toLowerCase().replace(/ /g, "-")}`}>
+                    <a className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid={`link-footer-service-${item.toLowerCase().replace(/ /g, "-")}`}>
                       {item}
                     </a>
                   </Link>
@@ -50,15 +50,19 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone size={16} className="text-primary" />
-                <span data-testid="text-footer-phone">+91 98765 43210</span>
+                <span data-testid="text-footer-phone">+91 9908547461</span>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Phone size={16} className="text-primary" />
+                <span data-testid="text-footer-phone-2">+91 7569021484</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail size={16} className="text-primary" />
-                <span data-testid="text-footer-email">info@veluxeinteriors.com</span>
+                <span data-testid="text-footer-email">veluxeinteriors1@gmail.com</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin size={16} className="text-primary mt-0.5" />
-                <span data-testid="text-footer-address">123 Design Street, Mumbai, India</span>
+                <span data-testid="text-footer-address">11-34, Yagappareddy Kandriga, Tirupati, Andhra Pradesh, 517561</span>
               </li>
             </ul>
           </div>

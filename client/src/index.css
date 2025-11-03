@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Lora:wght@400;500;600&display=swap');
 
 /* LIGHT MODE */
 :root {
@@ -34,7 +34,7 @@
 
   --sidebar-border: 240 100% 96%;
 
-  --sidebar-primary: 43 74% 52%;
+  --sidebar-primary: 43 45% 58%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
@@ -42,7 +42,7 @@
 
   --sidebar-accent-foreground: 0 0% 17%;
 
-  --sidebar-ring: 43 74% 52%;
+  --sidebar-ring: 43 45% 58%;
 
   --popover: 0 0% 96%;
 
@@ -50,7 +50,7 @@
 
   --popover-border: 0 0% 92%;
 
-  --primary: 43 74% 52%;
+  --primary: 43 45% 58%;
 
   --primary-foreground: 0 0% 100%;
 
@@ -71,8 +71,8 @@
   --destructive-foreground: 0 0% 100%;
 
   --input: 0 0% 78%;
-  --ring: 43 74% 52%;
-  --chart-1: 43 74% 52%;
+  --ring: 43 45% 58%;
+  --chart-1: 43 45% 58%;
   --chart-2: 221 83% 53%;
   --chart-3: 142 71% 45%;
   --chart-4: 280 65% 60%;
@@ -94,8 +94,8 @@
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
-  --gold-gradient-start: 43 74% 52%;
-  --gold-gradient-end: 51 100% 50%;
+  --gold-gradient-start: 43 45% 58%;
+  --gold-gradient-end: 45 50% 65%;
 
   /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
 
@@ -156,7 +156,7 @@
 
   --sidebar-border: 240 3% 18%;
 
-  --sidebar-primary: 43 74% 48%;
+  --sidebar-primary: 43 45% 55%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
@@ -164,7 +164,7 @@
 
   --sidebar-accent-foreground: 0 0% 95%;
 
-  --sidebar-ring: 43 74% 52%;
+  --sidebar-ring: 43 45% 58%;
 
   --popover: 0 0% 13%;
 
@@ -172,7 +172,7 @@
 
   --popover-border: 0 0% 18%;
 
-  --primary: 43 74% 48%;
+  --primary: 43 45% 55%;
 
   --primary-foreground: 0 0% 100%;
 
@@ -193,8 +193,8 @@
   --destructive-foreground: 0 0% 100%;
 
   --input: 0 0% 28%;
-  --ring: 43 74% 52%;
-  --chart-1: 43 90% 65%;
+  --ring: 43 45% 58%;
+  --chart-1: 43 45% 62%;
   --chart-2: 221 83% 68%;
   --chart-3: 142 71% 60%;
   --chart-4: 280 65% 75%;

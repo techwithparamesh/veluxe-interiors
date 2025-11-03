@@ -22,16 +22,10 @@ export default function Home() {
       link: "/modular-kitchen",
     },
     {
-      title: "Wardrobes",
-      description: "Custom wardrobe solutions with elegant finishes, organized interiors, and space-efficient designs tailored to your needs.",
-      image: wardrobeImage,
-      link: "/wardrobes",
-    },
-    {
-      title: "Living Room",
-      description: "Sophisticated living spaces that combine comfort and style, creating the perfect environment for relaxation and entertainment.",
+      title: "TV Unit",
+      description: "Modern TV unit designs that maximize style and storage, seamlessly integrating with your living space.",
       image: livingRoomImage,
-      link: "/living-room",
+      link: "/tv-unit",
     },
     {
       title: "Bedroom",
@@ -44,14 +38,14 @@ export default function Home() {
   const testimonials = [
     {
       name: "Priya Sharma",
-      location: "Mumbai, India",
+      location: "Tirupati, Andhra Pradesh",
       image: testimonial1,
       testimonial: "Veluxe Interiors transformed our home beyond our expectations. The attention to detail and quality of work is exceptional. Highly recommended!",
       rating: 5,
     },
     {
       name: "Rajesh Kumar",
-      location: "Bangalore, India",
+      location: "Tirupati, Andhra Pradesh",
       image: testimonial2,
       testimonial: "Professional team, creative designs, and flawless execution. Our modular kitchen is now the heart of our home. Thank you Veluxe!",
       rating: 5,
@@ -88,7 +82,6 @@ export default function Home() {
         subtitle="Expert interior design services crafted with precision and elegance for discerning homeowners"
         backgroundImage={heroImage}
         primaryCTA={{ text: "Book Consultation", href: "/book-consultation" }}
-        secondaryCTA={{ text: "View Portfolio", href: "/portfolio" }}
       />
 
       <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -101,10 +94,15 @@ export default function Home() {
               Comprehensive interior design solutions tailored to elevate every space in your home
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
+          </div>
+          <div className="flex justify-center mt-8">
+            <a href="/services">
+              <button className="px-6 py-3 rounded-full bg-primary text-white font-semibold shadow hover:bg-primary/80 transition">View All</button>
+            </a>
           </div>
         </div>
       </section>

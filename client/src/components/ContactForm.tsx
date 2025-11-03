@@ -89,7 +89,7 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel>Phone</FormLabel>
               <FormControl>
-                <Input placeholder="+91 98765 43210" {...field} data-testid="input-contact-phone" />
+                <Input placeholder="+91 9908547461" {...field} data-testid="input-contact-phone" />
               </FormControl>
               <FormMessage />
             </FormItem>

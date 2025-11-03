@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const phoneNumber = "+91-7569021484";
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -17,14 +18,21 @@ export default function Navbar() {
 
   const isActive = (path: string) => location === path;
 
+  const handleCallClick = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center">
-            <h1 className="font-serif text-2xl font-bold text-gradient-gold" data-testid="logo-veluxe">
-              Veluxe Interiors
-            </h1>
+        <div className="flex items-center justify-between h-24">
+          <Link href="/" className="flex items-center py-2">
+            <img 
+              src="/images/veluxe-logo.png" 
+              alt="Veluxe Interiors" 
+              className="h-20 w-48 object-contain"
+              data-testid="logo-veluxe"
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -45,14 +53,14 @@ export default function Navbar() {
                 </a>
               </Link>
             ))}
-            <Link href="/book-consultation">
-              <Button
-                className="rounded-full"
-                data-testid="button-book-consultation-nav"
-              >
-                Book Consultation
-              </Button>
-            </Link>
+            <Button
+              onClick={handleCallClick}
+              className="rounded-full flex items-center gap-2"
+              data-testid="button-call-us-nav"
+            >
+              <Phone size={18} />
+              Call Us
+            </Button>
           </div>
 
           <button
@@ -81,15 +89,17 @@ export default function Navbar() {
                 </a>
               </Link>
             ))}
-            <Link href="/book-consultation">
-              <Button
-                className="w-full rounded-full"
-                onClick={() => setMobileMenuOpen(false)}
-                data-testid="button-book-consultation-mobile"
-              >
-                Book Consultation
-              </Button>
-            </Link>
+            <Button
+              onClick={() => {
+                handleCallClick();
+                setMobileMenuOpen(false);
+              }}
+              className="w-full rounded-full flex items-center justify-center gap-2"
+              data-testid="button-call-us-mobile"
+            >
+              <Phone size={18} />
+              Call Us
+            </Button>
           </div>
         </div>
       )}

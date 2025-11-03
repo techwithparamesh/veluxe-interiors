@@ -15,17 +15,54 @@ import image8 from '@assets/generated_images/Portfolio_luxury_bathroom_496d06de.
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const categories = ["all", "Kitchen", "Wardrobe", "Living Room", "Bedroom", "Bathroom"];
+  const categories = [
+    "all",
+    "Kitchen",
+    "TV Unit",
+    "Bedroom",
+    "Pooja Mandir",
+    "Living Room/Hall"
+  ];
 
   const projects = [
-    { title: "Contemporary Kitchen Design", category: "Kitchen", image: image4 },
-    { title: "Modern Living Space", category: "Living Room", image: image1 },
-    { title: "Elegant Dining Room", category: "Living Room", image: image2 },
-    { title: "Executive Home Office", category: "Living Room", image: image3 },
-    { title: "Luxury Walk-in Closet", category: "Wardrobe", image: image5 },
-    { title: "Master Bedroom Suite", category: "Bedroom", image: image6 },
-    { title: "Sophisticated Living Area", category: "Living Room", image: image7 },
-    { title: "Spa-Inspired Bathroom", category: "Bathroom", image: image8 },
+    // Kitchen
+    { title: "Kitchen 1", category: "Kitchen", image: "/images/portfolio/kitchen.jpg" },
+    { title: "Kitchen 2", category: "Kitchen", image: "/images/portfolio/kitchen1.jpg" },
+    { title: "Kitchen 3", category: "Kitchen", image: "/images/portfolio/kitchen3.jpg" },
+    { title: "Kitchen 4", category: "Kitchen", image: "/images/portfolio/kitchen5.jpg" },
+    { title: "Kitchen 5", category: "Kitchen", image: "/images/portfolio/kitchen6.jpg" },
+
+    // TV Unit
+    { title: "TV Unit 1", category: "TV Unit", image: "/images/portfolio/tv-unit.jpg" },
+    { title: "TV Unit 2", category: "TV Unit", image: "/images/portfolio/tv-unit1.jpg" },
+    { title: "TV Unit 3", category: "TV Unit", image: "/images/portfolio/tv-unit2.jpg" },
+    { title: "TV Unit 4", category: "TV Unit", image: "/images/portfolio/tv-unit3.jpg" },
+    { title: "TV Unit 5", category: "TV Unit", image: "/images/portfolio/tv-unit5.jpg" },
+
+    // Bedroom
+    { title: "Bedroom 1", category: "Bedroom", image: "/images/portfolio/bedroom11.jpg" },
+    { title: "Bedroom 2", category: "Bedroom", image: "/images/portfolio/bedroom12.jpg" },
+    { title: "Bedroom 3", category: "Bedroom", image: "/images/portfolio/bedroom16.jpg" },
+    { title: "Bedroom 4", category: "Bedroom", image: "/images/portfolio/bedroom17.jpg" },
+    { title: "Bedroom 5", category: "Bedroom", image: "/images/portfolio/bedroom18.jpg" },
+
+    // Pooja Mandir
+    { title: "Pooja Mandir 1", category: "Pooja Mandir", image: "/images/portfolio/pooja.jpg" },
+    { title: "Pooja Mandir 2", category: "Pooja Mandir", image: "/images/portfolio/pooja1.jpg" },
+    { title: "Pooja Mandir 3", category: "Pooja Mandir", image: "/images/portfolio/pooja2.jpg" },
+    { title: "Pooja Mandir 4", category: "Pooja Mandir", image: "/images/portfolio/pooja3.jpg" },
+    { title: "Pooja Mandir 5", category: "Pooja Mandir", image: "/images/portfolio/pooja4.jpg" },
+
+    // Living Room/Hall
+    { title: "Living Room 1", category: "Living Room/Hall", image: "/images/portfolio/living-room1.jpg" },
+    { title: "Living Room 2", category: "Living Room/Hall", image: "/images/portfolio/living-room2.jpg" },
+    { title: "Living Room 3", category: "Living Room/Hall", image: "/images/portfolio/living-room4.jpg" },
+
+    // Dining (if you want to show as Living Room/Hall or separate)
+    { title: "Dining 1", category: "Living Room/Hall", image: "/images/portfolio/dine.jpg" },
+    { title: "Dining 2", category: "Living Room/Hall", image: "/images/portfolio/dine1.jpg" },
+    { title: "Dining 3", category: "Living Room/Hall", image: "/images/portfolio/dine3.jpg" },
+    { title: "Dining 4", category: "Living Room/Hall", image: "/images/portfolio/dine5.jpg" },
   ];
 
   const filteredProjects = selectedCategory === "all"

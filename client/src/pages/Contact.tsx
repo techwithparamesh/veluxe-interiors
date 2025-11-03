@@ -9,22 +9,22 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 98765 43210", "+91 98765 43211"],
+      details: ["+91 9908547461", "+91 7569021484"],
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@veluxeinteriors.com", "design@veluxeinteriors.com"],
+      details: ["veluxeinteriors1@gmail.com"],
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["123 Design Street", "Mumbai, India 400001"],
+      details: ["11-34, Yagappareddy Kandriga", "Tirupati, Andhra Pradesh, 517561"],
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Mon - Sat: 10:00 AM - 7:00 PM", "Sunday: Closed"],
+      details: ["Every Day: 7:00 AM - 9:00 PM"],
     },
   ];
 
@@ -90,7 +90,7 @@ export default function Contact() {
           </p>
           <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.1160992347!2d72.74109995!3d19.082197799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=11-34+Yagappareddy+Kandriga+Tirupati+Andhra+Pradesh+517561&zoom=15"
               width="100%"
               height="100%"
               style={{ border: 0 }}

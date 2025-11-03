@@ -1,34 +1,29 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
 import { insertConsultationBookingSchema, insertContactMessageSchema } from "@shared/schema";
 import { ZodError } from "zod";
+import { sendConsultationEmail, sendContactEmail } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Consultation booking endpoint
   app.post("/api/consultation-bookings", async (req, res) => {
     try {
       const validated = insertConsultationBookingSchema.parse(req.body);
-      const booking = await storage.createConsultationBooking(validated);
-      res.json(booking);
+      
+      // Send email with the consultation booking details
+      await sendConsultationEmail(validated);
+      
+      res.json({ 
+        success: true, 
+        message: "Consultation request sent successfully! We'll contact you soon." 
+      });
     } catch (error) {
       if (error instanceof ZodError) {
         res.status(400).json({ error: "Validation failed", details: error.errors });
       } else {
-        console.error("Error creating consultation booking:", error);
-        res.status(500).json({ error: "Internal server error" });
+        console.error("Error processing consultation booking:", error);
+        res.status(500).json({ error: "Failed to send consultation request. Please try again." });
       }
-    }
-  });
-
-  // Get all consultation bookings
-  app.get("/api/consultation-bookings", async (req, res) => {
-    try {
-      const bookings = await storage.getAllConsultationBookings();
-      res.json(bookings);
-    } catch (error) {
-      console.error("Error fetching consultation bookings:", error);
-      res.status(500).json({ error: "Internal server error" });
     }
   });
 
@@ -36,26 +31,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact-messages", async (req, res) => {
     try {
       const validated = insertContactMessageSchema.parse(req.body);
-      const message = await storage.createContactMessage(validated);
-      res.json(message);
+      
+      // Send email with the contact message
+      await sendContactEmail(validated);
+      
+      res.json({ 
+        success: true, 
+        message: "Message sent successfully! We'll get back to you soon." 
+      });
     } catch (error) {
       if (error instanceof ZodError) {
         res.status(400).json({ error: "Validation failed", details: error.errors });
       } else {
-        console.error("Error creating contact message:", error);
-        res.status(500).json({ error: "Internal server error" });
+        console.error("Error processing contact message:", error);
+        res.status(500).json({ error: "Failed to send message. Please try again." });
       }
-    }
-  });
-
-  // Get all contact messages
-  app.get("/api/contact-messages", async (req, res) => {
-    try {
-      const messages = await storage.getAllContactMessages();
-      res.json(messages);
-    } catch (error) {
-      console.error("Error fetching contact messages:", error);
-      res.status(500).json({ error: "Internal server error" });
     }
   });
 

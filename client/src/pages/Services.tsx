@@ -17,22 +17,34 @@ export default function Services() {
       link: "/modular-kitchen",
     },
     {
-      title: "Wardrobes",
-      description: "Custom wardrobe solutions with elegant finishes, organized interiors, and space-efficient designs tailored to your needs.",
-      image: wardrobeImage,
-      link: "/wardrobes",
-    },
-    {
-      title: "Living Room",
-      description: "Sophisticated living spaces that combine comfort and style, creating the perfect environment for relaxation and entertainment.",
+      title: "TV Unit",
+      description: "Modern TV unit designs that maximize style and storage, seamlessly integrating with your living space.",
       image: livingRoomImage,
-      link: "/living-room",
+      link: "/tv-unit",
     },
     {
       title: "Bedroom",
       description: "Tranquil bedroom designs that prioritize comfort and elegance, creating your personal sanctuary for rest and rejuvenation.",
       image: bedroomImage,
       link: "/bedroom",
+    },
+    {
+      title: "Pooja Mandir",
+      description: "Elegant pooja mandir designs crafted for serenity and spiritual ambiance in your home.",
+      image: wardrobeImage,
+      link: "/pooja-mandir",
+    },
+    {
+      title: "Living Room/Hall",
+      description: "Sophisticated living spaces that combine comfort and style, creating the perfect environment for relaxation and entertainment.",
+      image: livingRoomImage,
+      link: "/living-room",
+    },
+    {
+      title: "Wardrobes",
+      description: "Custom wardrobe solutions with elegant finishes, organized interiors, and space-efficient designs tailored to your needs.",
+      image: wardrobeImage,
+      link: "/wardrobes",
     },
   ];
 
@@ -79,7 +91,7 @@ export default function Services() {
               From concept to completion, we handle every aspect of your interior design project
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}

@@ -17,6 +17,8 @@ import Bedroom from "@/pages/Bedroom";
 import Contact from "@/pages/Contact";
 import BookConsultation from "@/pages/BookConsultation";
 import NotFound from "@/pages/not-found";
+import PoojaMandir from "@/pages/PoojaMandir";
+import TVUnit from "./pages/TVUnit";
 
 function Router() {
   return (
@@ -29,9 +31,11 @@ function Router() {
       <Route path="/wardrobes" component={Wardrobes} />
       <Route path="/living-room" component={LivingRoom} />
       <Route path="/bedroom" component={Bedroom} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/book-consultation" component={BookConsultation} />
-      <Route component={NotFound} />
+  <Route path="/contact" component={Contact} />
+  <Route path="/book-consultation" component={BookConsultation} />
+  <Route path="/pooja-mandir" component={PoojaMandir} />
+  <Route path="/tv-unit" component={TVUnit} />
+  <Route component={NotFound} />
     </Switch>
   );
 }
