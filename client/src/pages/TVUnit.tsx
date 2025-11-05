@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import { Card } from "@/components/ui/card";
-import tvImage from "@assets/generated_images/Portfolio_modern_apartment_b45b9e03.png"; // Placeholder, update if you have a TV unit image
+import tvImage from "/images/portfolio/tv-unit1.jpg";
 
 export default function TVUnit() {
   return (
