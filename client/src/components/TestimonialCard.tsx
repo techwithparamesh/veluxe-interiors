@@ -32,12 +32,9 @@ export default function TestimonialCard({
         "{testimonial}"
       </p>
       <div className="flex items-center gap-4">
-        <img
-          src={image}
-          alt={name}
-          className="w-16 h-16 rounded-full object-cover"
-          data-testid="img-testimonial-avatar"
-        />
+        <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center text-2xl font-bold text-primary select-none" data-testid="avatar-testimonial-initials">
+          {name.split(' ').map(n => n[0]).join('').toUpperCase()}
+        </div>
         <div>
           <h4 className="font-semibold" data-testid="text-testimonial-name">{name}</h4>
           <p className="text-sm text-muted-foreground" data-testid="text-testimonial-location">{location}</p>

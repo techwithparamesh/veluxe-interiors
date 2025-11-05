@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import { Card } from "@/components/ui/card";
-import mandirImage from "@assets/generated_images/Luxury_wardrobe_design_e3a8830a.png"; // Placeholder, update if you have a mandir image
+import mandirImage from "/images/portfolio/pooja1.jpg";
 
 export default function PoojaMandir() {
   return (

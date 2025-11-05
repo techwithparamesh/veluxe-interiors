@@ -5,6 +5,8 @@ import FAQItem from "@/components/FAQItem";
 import kitchenImage from '@assets/generated_images/Modular_kitchen_showcase_1a562f6f.png';
 import wardrobeImage from '@assets/generated_images/Luxury_wardrobe_design_e3a8830a.png';
 import livingRoomImage from '@assets/generated_images/Portfolio_modern_apartment_b45b9e03.png';
+import tvUnitImage from '/images/portfolio/tv-unit1.jpg';
+import poojaMandirImage from '/images/portfolio/pooja1.jpg';
 import bedroomImage from '@assets/generated_images/Master_bedroom_luxury_23d563b4.png';
 import heroImage from '@assets/generated_images/Portfolio_dining_room_67faebd9.png';
 
@@ -19,7 +21,7 @@ export default function Services() {
     {
       title: "TV Unit",
       description: "Modern TV unit designs that maximize style and storage, seamlessly integrating with your living space.",
-      image: livingRoomImage,
+      image: tvUnitImage,
       link: "/tv-unit",
     },
     {
@@ -31,7 +33,7 @@ export default function Services() {
     {
       title: "Pooja Mandir",
       description: "Elegant pooja mandir designs crafted for serenity and spiritual ambiance in your home.",
-      image: wardrobeImage,
+      image: poojaMandirImage,
       link: "/pooja-mandir",
     },
     {

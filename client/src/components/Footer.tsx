@@ -1,6 +1,10 @@
 import { Link } from "wouter";
 import { Mail, Phone, MapPin } from "lucide-react";
 
+// Social icons
+import { FaWhatsapp, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+
 export default function Footer() {
   return (
     <footer className="bg-accent border-t border-border">
@@ -68,7 +72,39 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center">
+        <div className="mt-8 pt-8 border-t border-border text-center flex flex-col items-center gap-4">
+          <div>
+            <h4 className="font-semibold mb-4">Stay Connected</h4>
+            <div className="flex gap-4 justify-center">
+              <a href="https://wa.me/917569021484" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 hover:bg-green-200 transition-colors">
+                  <FaWhatsapp size={28} className="text-green-600" />
+                </span>
+              </a>
+              <a href="https://www.facebook.com/share/1KSWvvdFps/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors">
+                  <FaFacebookF size={28} className="text-blue-600" />
+                </span>
+              </a>
+              <a href="https://www.instagram.com/veluxe_interiors?igsh=bW80OTBxbGJicHRp&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-pink-200 via-yellow-100 to-purple-200 hover:from-pink-300 hover:to-purple-300 transition-colors">
+                  <FaInstagram size={28} className="text-pink-600" />
+                </span>
+              </a>
+              <a href="mailto:veluxeinteriors1@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Gmail">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-100 hover:bg-red-200 transition-colors">
+                  <SiGmail size={28} className="text-red-500" />
+                </span>
+              </a>
+              {/**
+              <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-100 hover:bg-red-200 transition-colors">
+                  <FaYoutube size={28} className="text-red-600" />
+                </span>
+              </a>
+              */}
+            </div>
+          </div>
           <p className="text-sm text-muted-foreground" data-testid="text-footer-copyright">
             © 2025 Veluxe Interiors. All rights reserved.
           </p>

@@ -9,6 +9,8 @@ import heroImage from '@assets/generated_images/Hero_luxury_living_room_fc22130e
 import kitchenImage from '@assets/generated_images/Modular_kitchen_showcase_1a562f6f.png';
 import wardrobeImage from '@assets/generated_images/Luxury_wardrobe_design_e3a8830a.png';
 import livingRoomImage from '@assets/generated_images/Portfolio_modern_apartment_b45b9e03.png';
+import tvUnitImage from '/images/portfolio/tv-unit1.jpg';
+import poojaMandirImage from '/images/portfolio/pooja1.jpg';
 import bedroomImage from '@assets/generated_images/Master_bedroom_luxury_23d563b4.png';
 import testimonial1 from '@assets/generated_images/Client_testimonial_portrait_female_5b47373d.png';
 import testimonial2 from '@assets/generated_images/Client_testimonial_portrait_male_5dc8044c.png';
@@ -24,7 +26,7 @@ export default function Home() {
     {
       title: "TV Unit",
       description: "Modern TV unit designs that maximize style and storage, seamlessly integrating with your living space.",
-      image: livingRoomImage,
+      image: tvUnitImage,
       link: "/tv-unit",
     },
     {
